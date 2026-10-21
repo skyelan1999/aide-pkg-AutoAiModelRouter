@@ -1,0 +1,10 @@
+{
+  "name": "aide-pkg-auto-ai-model-router",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test test/*.test.cjs",
+    "pack": "python3 scripts/package.py"
+  }
+}

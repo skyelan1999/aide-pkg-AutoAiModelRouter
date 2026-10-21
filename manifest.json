@@ -1,0 +1,38 @@
+{
+  "id": "auto-ai-model-router",
+  "name": "AutoAiModelRouter",
+  "version": "0.1.0",
+  "description": "离线模型能力档案：按编排阶段与独立子任务，在已配置厂家 API 中自动选择模型。",
+  "author": "skyelan1999",
+  "license": "MIT",
+  "main": "index.js",
+  "homepage": "https://github.com/skyelan1999/aide-pkg-AutoAiModelRouter",
+  "modelRouter": {
+    "protocol": 1,
+    "catalog": "capabilities.json"
+  },
+  "settingsSchema": {
+    "type": "object",
+    "properties": {
+      "aliases": {
+        "type": "object",
+        "title": "模型名称显式映射",
+        "description": "键为实际 API 模型名，值为档案 model ID；不填写 API 密钥。",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "preference": {
+        "type": "string",
+        "title": "选型偏好",
+        "enum": [
+          "quality",
+          "balanced",
+          "fast"
+        ],
+        "default": "quality"
+      }
+    },
+    "additionalProperties": false
+  }
+}

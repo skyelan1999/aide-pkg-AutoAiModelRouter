@@ -1,0 +1,170 @@
+{
+  "protocol": 1,
+  "revision": "2026-10-22.1",
+  "checkedAt": "2026-10-22",
+  "license": "MIT",
+  "policyNote": "Weights are maintainer routing heuristics (1-5), not official benchmark scores or comparable cross-vendor rankings. Official summaries are paraphrases. Only configured compatible endpoints are called. Runtime never fetches these URLs.",
+  "sources": [
+    {
+      "id": "sonnet-46",
+      "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
+      "assessment": "Official assessment: improved coding, planning and long-context reasoning; reported 1M beta context."
+    },
+    {
+      "id": "gpt-54",
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.4",
+      "assessment": "Official model documentation: complex professional/coding work, 1,050,000 context, tools and structured output."
+    },
+    {
+      "id": "gemini-31",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview",
+      "assessment": "Official documentation: reasoning, software engineering and multi-step tool workflows; 1,048,576 input tokens."
+    },
+    {
+      "id": "deepseek-flash-1017",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "assessment": "Official API documentation: deepseek-flash is served by V4.1-Flash-1017; legacy V4-Flash aliases are accepted. API aliases can change after this offline snapshot."
+    },
+    {
+      "id": "deepseek-41-eval",
+      "url": "https://api-docs.deepseek.com/news/news260910/",
+      "assessment": "Official assessment reports stronger agentic performance, faster inference, native vision; V4-Pro API requests were redirected to V4.1-Flash from 2026-09-14."
+    },
+    {
+      "id": "openai-chat-wire",
+      "url": "https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create",
+      "assessment": "Official Chat Completions reference documents max_completion_tokens. GPT reasoning requests omit unsupported sampling/stop fields; no DeepSeek thinking extension is sent."
+    }
+  ],
+  "rules": [
+    {
+      "role": "coding",
+      "keywords": [
+        "code",
+        "coding",
+        "implement",
+        "debug",
+        "test",
+        "软件",
+        "代码",
+        "编程",
+        "修复",
+        "测试"
+      ]
+    },
+    {
+      "role": "reasoning",
+      "keywords": [
+        "reason",
+        "math",
+        "proof",
+        "plan",
+        "review",
+        "audit",
+        "数学",
+        "推理",
+        "规划",
+        "审核",
+        "架构"
+      ]
+    },
+    {
+      "role": "writing",
+      "keywords": [
+        "write",
+        "document",
+        "report",
+        "translate",
+        "draft",
+        "文档",
+        "报告",
+        "写作",
+        "翻译",
+        "总结"
+      ]
+    }
+  ],
+  "models": [
+    {
+      "id": "deepseek-v4.1-flash-1017",
+      "aliases": [
+        "deepseek-flash",
+        "deepseek-v4-flash",
+        "deepseek-v4-flash-vision-exp",
+        "deepseek-v4-pro"
+      ],
+      "contextWindow": 1000000,
+      "vision": true,
+      "tools": true,
+      "structured": true,
+      "weights": {
+        "coding": 5,
+        "reasoning": 5,
+        "writing": 4,
+        "general": 4,
+        "fast": 5
+      },
+      "source": "deepseek-flash-1017",
+      "wireFormat": "deepseek"
+    },
+    {
+      "id": "claude-sonnet-4-6",
+      "aliases": [
+        "claude-sonnet-4-6"
+      ],
+      "contextWindow": 1000000,
+      "vision": true,
+      "tools": true,
+      "structured": true,
+      "weights": {
+        "coding": 5,
+        "reasoning": 5,
+        "writing": 5,
+        "general": 5,
+        "fast": 3
+      },
+      "source": "sonnet-46",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "gpt-5.4",
+      "aliases": [
+        "gpt-5.4",
+        "gpt-5.4-2026-03-05"
+      ],
+      "contextWindow": 1050000,
+      "vision": true,
+      "tools": true,
+      "structured": true,
+      "weights": {
+        "coding": 5,
+        "reasoning": 5,
+        "writing": 5,
+        "general": 5,
+        "fast": 3
+      },
+      "source": "gpt-54",
+      "wireFormat": "openai-reasoning"
+    },
+    {
+      "id": "gemini-3.1-pro-preview",
+      "aliases": [
+        "gemini-3.1-pro-preview",
+        "gemini-3.1-pro-preview-customtools"
+      ],
+      "contextWindow": 1048576,
+      "vision": true,
+      "tools": true,
+      "structured": true,
+      "weights": {
+        "coding": 5,
+        "reasoning": 5,
+        "writing": 4,
+        "general": 5,
+        "fast": 2
+      },
+      "source": "gemini-31",
+      "wireFormat": "openai-compatible"
+    }
+  ]
+}
