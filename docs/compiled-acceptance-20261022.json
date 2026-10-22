@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "packageSHA256": "a1c0b545d5ecba00791ccabac3c07192b0c0edd8212004cf64f0cf07c93da6e3",
+  "architectureTests": [
+    {
+      "arch": "arm64",
+      "mode": "native",
+      "check": "behavior",
+      "exitCode": 0
+    },
+    {
+      "arch": "arm64",
+      "mode": "native",
+      "check": "host-load",
+      "exitCode": 0
+    },
+    {
+      "arch": "amd64",
+      "mode": "emulated",
+      "check": "behavior",
+      "exitCode": 0
+    },
+    {
+      "arch": "amd64",
+      "mode": "emulated",
+      "check": "host-load",
+      "exitCode": 0
+    }
+  ],
+  "realExternalServicesTested": false,
+  "sourceEntryIncluded": false,
+  "nodeVersion": "24.22.0",
+  "marketUpload": false,
+  "trackingIssue": "skyelan1999/aide-pkg-AutoAiModelRouter#1"
+}
