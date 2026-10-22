@@ -4,7 +4,7 @@ MIT 开源 Aide 模型自动选型插件。安装并启用后，在普通会话/
 
 ## 使用
 
-1. Aide 宿主必须含 `modelRouter` protocol 1 扩展。**已公开的 v0.1.17.5-RC2 尚不含此扩展**，需使用本插件配套的后续宿主源码/候选版本。旧宿主即使导入插件也不会出现 Auto；不会伪造接入成功。
+1. Aide 宿主必须含 `modelRouter` protocol 1 扩展。**已公开的 v0.1.17.5-RC3 及更早发行包尚不含此扩展**。宿主源码 [0dd0f05d](https://github.com/skyelan1999/aide/commit/0dd0f05d346ec4d243150d833f91182177f212c9) 已实现并验收 protocol 1；使用该提交或后续包含它的宿主源码/候选版本。旧宿主即使导入插件也不会出现 Auto；不会伪造接入成功。
 2. 在 Aide 模型设置配置模型、厂商兼容地址及密钥。宿主当前支持 **OpenAI-compatible Chat Completions**；Anthropic/Gemini 可使用兼容网关，不表示已实现它们的原生 Messages/generateContent 协议。
 3. `npm run pack` 生成 `dist/aide-pkg-auto-ai-model-router-v0.1.0.zip`，从插件面板上传 ZIP 并启用。
 4. 打开模型列表，在最上方选择 Auto。左侧的参数策略“自动路由”与此独立；选择普通模型即可退出 Auto。选择按会话保存，不改变其他会话。
@@ -33,3 +33,7 @@ MIT 开源 Aide 模型自动选型插件。安装并启用后，在普通会话/
 `npm test` 检查包声明、离线档案的出处/别名唯一性与可加载入口。宿主配套 Go 测试验证跨两个独立 HTTP 地址真实重叠、各自认证、逐阶段选择、能力约束和停用回退；模拟 API 不是厂商付费调用验收。浏览器验收与实际运行/发布状态见配套 Aide 任务 `auto-ai-model-router-20261022`。
 
 源码 MIT；官方名称、能力声明及链接归各自提供商，不表示其背书本插件。
+
+## 发行状态
+
+`v0.1.0` 为 MIT 源码插件的预发布，明确依赖上述尚未进入公开 Aide 发行包的宿主扩展。插件与宿主源码推送、插件 ZIP 发行、Aide 完整包发行和生产部署为独立状态；安装 ZIP 不会自动升级宿主。
