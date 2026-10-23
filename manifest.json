@@ -1,7 +1,7 @@
 {
   "id": "auto-ai-model-router",
   "name": "AutoAiModelRouter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "离线模型能力档案：按编排阶段与独立子任务，在已配置厂家 API 中自动选择模型。",
   "author": "skyelan1999",
   "license": "MIT",

@@ -37,3 +37,6 @@ MIT 开源 Aide 模型自动选型插件。安装并启用后，在普通会话/
 ## 发行状态
 
 `v0.1.0` 为 MIT 源码插件的预发布，明确依赖上述尚未进入公开 Aide 发行包的宿主扩展。插件与宿主源码推送、插件 ZIP 发行、Aide 完整包发行和生产部署为独立状态；安装 ZIP 不会自动升级宿主。
+
+### 0.1.1
+Adds eight sourced Qwen 3.5–3.8 mainstream text/vision profiles. Image, Realtime, embedding and speech-only models stay outside generic task routing. Weights are maintainer heuristics, not measured benchmark scores. DashScope reasoning fields are applied by the Aide host after routing.

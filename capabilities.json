@@ -1,7 +1,7 @@
 {
   "protocol": 1,
-  "revision": "2026-10-22.1",
-  "checkedAt": "2026-10-22",
+  "revision": "2026-10-23.1",
+  "checkedAt": "2026-10-23",
   "license": "MIT",
   "policyNote": "Weights are maintainer routing heuristics (1-5), not official benchmark scores or comparable cross-vendor rankings. Official summaries are paraphrases. Only configured compatible endpoints are called. Runtime never fetches these URLs.",
   "sources": [
@@ -34,6 +34,11 @@
       "id": "openai-chat-wire",
       "url": "https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create",
       "assessment": "Official Chat Completions reference documents max_completion_tokens. GPT reasoning requests omit unsupported sampling/stop fields; no DeepSeek thinking extension is sent."
+    },
+    {
+      "id": "qwen-mainstream",
+      "url": "https://help.aliyun.com/zh/model-studio/model-list-text-generation",
+      "assessment": "Official model list and model pages: general, reasoning, coding and native multimodal Qwen families. Routing weights remain maintainer heuristics."
     }
   ],
   "rules": [
@@ -164,6 +169,158 @@
         "fast": 2
       },
       "source": "gemini-31",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen3.8-max",
+      "aliases": [
+        "qwen3.8-max"
+      ],
+      "contextWindow": 1000000,
+      "vision": true,
+      "tools": true,
+      "structured": true,
+      "weights": {
+        "coding": 4,
+        "reasoning": 5,
+        "writing": 4,
+        "general": 4,
+        "fast": 3
+      },
+      "source": "qwen-mainstream",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen3.8-flash",
+      "aliases": [
+        "qwen3.8-flash"
+      ],
+      "contextWindow": 1000000,
+      "vision": true,
+      "tools": true,
+      "structured": true,
+      "weights": {
+        "coding": 4,
+        "reasoning": 4,
+        "writing": 4,
+        "general": 4,
+        "fast": 5
+      },
+      "source": "qwen-mainstream",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen3.7-plus",
+      "aliases": [
+        "qwen3.7-plus"
+      ],
+      "contextWindow": 1000000,
+      "vision": true,
+      "tools": true,
+      "structured": true,
+      "weights": {
+        "coding": 4,
+        "reasoning": 4,
+        "writing": 4,
+        "general": 4,
+        "fast": 4
+      },
+      "source": "qwen-mainstream",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen3.7-flash",
+      "aliases": [
+        "qwen3.7-flash"
+      ],
+      "contextWindow": 1000000,
+      "vision": true,
+      "tools": true,
+      "structured": true,
+      "weights": {
+        "coding": 4,
+        "reasoning": 4,
+        "writing": 4,
+        "general": 4,
+        "fast": 5
+      },
+      "source": "qwen-mainstream",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen3.6-plus",
+      "aliases": [
+        "qwen3.6-plus"
+      ],
+      "contextWindow": 1000000,
+      "vision": true,
+      "tools": true,
+      "structured": true,
+      "weights": {
+        "coding": 4,
+        "reasoning": 4,
+        "writing": 4,
+        "general": 4,
+        "fast": 4
+      },
+      "source": "qwen-mainstream",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen3.6-flash",
+      "aliases": [
+        "qwen3.6-flash"
+      ],
+      "contextWindow": 1000000,
+      "vision": true,
+      "tools": true,
+      "structured": true,
+      "weights": {
+        "coding": 4,
+        "reasoning": 4,
+        "writing": 4,
+        "general": 4,
+        "fast": 5
+      },
+      "source": "qwen-mainstream",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen3.5-plus",
+      "aliases": [
+        "qwen3.5-plus"
+      ],
+      "contextWindow": 1000000,
+      "vision": true,
+      "tools": true,
+      "structured": true,
+      "weights": {
+        "coding": 4,
+        "reasoning": 4,
+        "writing": 4,
+        "general": 4,
+        "fast": 4
+      },
+      "source": "qwen-mainstream",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen3.5-flash",
+      "aliases": [
+        "qwen3.5-flash"
+      ],
+      "contextWindow": 1000000,
+      "vision": true,
+      "tools": true,
+      "structured": true,
+      "weights": {
+        "coding": 4,
+        "reasoning": 3,
+        "writing": 4,
+        "general": 4,
+        "fast": 5
+      },
+      "source": "qwen-mainstream",
       "wireFormat": "openai-compatible"
     }
   ]
