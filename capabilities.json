@@ -1,6 +1,6 @@
 {
   "protocol": 1,
-  "revision": "2026-10-23.1",
+  "revision": "2026-10-23.2",
   "checkedAt": "2026-10-23",
   "license": "MIT",
   "policyNote": "Weights are maintainer routing heuristics (1-5), not official benchmark scores or comparable cross-vendor rankings. Official summaries are paraphrases. Only configured compatible endpoints are called. Runtime never fetches these URLs.",
@@ -39,6 +39,21 @@
       "id": "qwen-mainstream",
       "url": "https://help.aliyun.com/zh/model-studio/model-list-text-generation",
       "assessment": "Official model list and model pages: general, reasoning, coding and native multimodal Qwen families. Routing weights remain maintainer heuristics."
+    },
+    {
+      "id": "qwen-image-output",
+      "url": "https://help.aliyun.com/en/model-studio/qwen-image-generation-and-editing-api-reference",
+      "assessment": "Native synchronous image generation; image generation rating is independent from input vision."
+    },
+    {
+      "id": "wan-video-output",
+      "url": "https://help.aliyun.com/en/model-studio/text-to-video-api-reference",
+      "assessment": "Wan2.7 native asynchronous text-to-video, 2-15 seconds. Account activation and region must be checked at runtime."
+    },
+    {
+      "id": "qwen-speech-output",
+      "url": "https://help.aliyun.com/zh/model-studio/qwen-audio-tts-http-api",
+      "assessment": "Qwen-Audio-TTS native speech file API supports MP3/WAV/PCM/Opus. This host baseline selects MP3; no voice cloning or realtime generation."
     }
   ],
   "rules": [
@@ -321,6 +336,196 @@
         "fast": 5
       },
       "source": "qwen-mainstream",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen-image-3.0-pro",
+      "aliases": [
+        "qwen-image-3.0-pro"
+      ],
+      "contextWindow": 65536,
+      "vision": false,
+      "tools": false,
+      "structured": false,
+      "output": "image",
+      "weights": {
+        "coding": 1,
+        "reasoning": 1,
+        "writing": 1,
+        "general": 1,
+        "fast": 2,
+        "image": 5
+      },
+      "source": "qwen-image-output",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen-image-3.0",
+      "aliases": [
+        "qwen-image-3.0"
+      ],
+      "contextWindow": 65536,
+      "vision": false,
+      "tools": false,
+      "structured": false,
+      "output": "image",
+      "weights": {
+        "coding": 1,
+        "reasoning": 1,
+        "writing": 1,
+        "general": 1,
+        "fast": 4,
+        "image": 4
+      },
+      "source": "qwen-image-output",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen-image-2.1-pro",
+      "aliases": [
+        "qwen-image-2.1-pro"
+      ],
+      "contextWindow": 65536,
+      "vision": false,
+      "tools": false,
+      "structured": false,
+      "output": "image",
+      "weights": {
+        "coding": 1,
+        "reasoning": 1,
+        "writing": 1,
+        "general": 1,
+        "fast": 3,
+        "image": 4
+      },
+      "source": "qwen-image-output",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen-image-2.1",
+      "aliases": [
+        "qwen-image-2.1"
+      ],
+      "contextWindow": 65536,
+      "vision": false,
+      "tools": false,
+      "structured": false,
+      "output": "image",
+      "weights": {
+        "coding": 1,
+        "reasoning": 1,
+        "writing": 1,
+        "general": 1,
+        "fast": 5,
+        "image": 3
+      },
+      "source": "qwen-image-output",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "wan2.7-t2v",
+      "aliases": [
+        "wan2.7-t2v",
+        "wan2.7-t2v-2026-06-12"
+      ],
+      "contextWindow": 65536,
+      "vision": false,
+      "tools": false,
+      "structured": false,
+      "output": "video",
+      "weights": {
+        "coding": 1,
+        "reasoning": 1,
+        "writing": 1,
+        "general": 1,
+        "fast": 3,
+        "video": 5
+      },
+      "source": "wan-video-output",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen-audio-3.1-tts-plus",
+      "aliases": [
+        "qwen-audio-3.1-tts-plus"
+      ],
+      "contextWindow": 65536,
+      "vision": false,
+      "tools": false,
+      "structured": false,
+      "output": "speech",
+      "weights": {
+        "coding": 1,
+        "reasoning": 1,
+        "writing": 1,
+        "general": 1,
+        "fast": 3,
+        "speech": 5
+      },
+      "source": "qwen-speech-output",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen-audio-3.1-tts-flash",
+      "aliases": [
+        "qwen-audio-3.1-tts-flash"
+      ],
+      "contextWindow": 65536,
+      "vision": false,
+      "tools": false,
+      "structured": false,
+      "output": "speech",
+      "weights": {
+        "coding": 1,
+        "reasoning": 1,
+        "writing": 1,
+        "general": 1,
+        "fast": 5,
+        "speech": 4
+      },
+      "source": "qwen-speech-output",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen-audio-3.0-tts-plus",
+      "aliases": [
+        "qwen-audio-3.0-tts-plus"
+      ],
+      "contextWindow": 65536,
+      "vision": false,
+      "tools": false,
+      "structured": false,
+      "output": "speech",
+      "weights": {
+        "coding": 1,
+        "reasoning": 1,
+        "writing": 1,
+        "general": 1,
+        "fast": 3,
+        "speech": 4
+      },
+      "source": "qwen-speech-output",
+      "wireFormat": "openai-compatible"
+    },
+    {
+      "id": "qwen-audio-3.0-tts-flash",
+      "aliases": [
+        "qwen-audio-3.0-tts-flash"
+      ],
+      "contextWindow": 65536,
+      "vision": false,
+      "tools": false,
+      "structured": false,
+      "output": "speech",
+      "weights": {
+        "coding": 1,
+        "reasoning": 1,
+        "writing": 1,
+        "general": 1,
+        "fast": 5,
+        "speech": 3
+      },
+      "source": "qwen-speech-output",
       "wireFormat": "openai-compatible"
     }
   ]

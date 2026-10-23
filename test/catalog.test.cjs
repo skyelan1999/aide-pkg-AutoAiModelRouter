@@ -14,3 +14,11 @@ test('plugin applies without credentials, network or filesystem host APIs',async
  assert.equal(services.length,1);assert.equal(tools.length,1);assert.deepEqual(tools[0].scheduling,{resources:[]});
  const value=await tools[0].handler({},{});assert.equal(value.revision,catalog.revision);assert(!JSON.stringify(value).includes('apiKey'));assert.equal(value.models.length,catalog.models.length);
 });
+test('generation profiles distinguish output from input vision and carry independent scores',()=>{
+ for(const output of ['image','video','speech']){
+  const profiles=catalog.models.filter(m=>m.output===output);assert(profiles.length);
+  for(const m of profiles){assert(m.weights[output]>=1&&m.weights[output]<=5);assert.equal(m.tools,false);assert.equal(m.vision,false);}
+ }
+ assert(!catalog.models.find(m=>m.aliases.includes('deepseek-flash')).output);
+ assert(catalog.models.find(m=>m.id==='qwen-audio-3.1-tts-flash').weights.speech);
+});

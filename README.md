@@ -40,3 +40,9 @@ MIT 开源 Aide 模型自动选型插件。安装并启用后，在普通会话/
 
 ### 0.1.1
 Adds eight sourced Qwen 3.5–3.8 mainstream text/vision profiles. Image, Realtime, embedding and speech-only models stay outside generic task routing. Weights are maintainer heuristics, not measured benchmark scores. DashScope reasoning fields are applied by the Aide host after routing.
+
+## 0.1.2 媒体输出路由（需要 Aide 0.1.17.5 RC4 或同等宿主实现）
+
+图片、视频、语音使用独立 `output` 能力和同名权重（1–5），不从图片输入能力推断生成能力。当前档案覆盖 Qwen Image 3.0/2.1、Wan2.7 文生视频与 Qwen-Audio-TTS 3.0/3.1。评分是维护者基于能力和速度的启发式，不是跨厂商官方排名。只筛选用户已配置的精确模型及有密钥的提供商；档案中存在模型不代表账户已开通。
+
+宿主负责接口、凭证、任务恢复和文件保存；插件仍只提供离线档案。原生生成不进入多轮文本规划；视频保留远端任务 ID 后轮询。语音文案请明确给出，例如 `生成 MP3，内容：你好，测试成功。`，生成文件可下载。现有朗读设置的旧 Qwen-TTS WAV 接口保持独立。新版本不可用时可以保留已安装的 0.1.1，已有发布附件不会覆盖。
